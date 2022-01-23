@@ -1,5 +1,5 @@
-object,locationX,locationY,shape,param1,param2,param3,color
-1,30,40,square,5,NULL,NULL,red
-2,140,70,circle,10,NULL,NULL,green
-3,100,100,rectangle,40,50,NULL,blue
-4,250,250,triangle,70,10,70,140,120,150,NULL,pink
+object,location,shape,param1,param2,param3,color
+1,"30,40",square,5,NULL,NULL,red
+2,"140,70",circle,10,NULL,NULL,green
+3,"100,100",rectangle,40,50,NULL,blue
+4,"250,250",triangle,"70,10","70,140","120,150",pink

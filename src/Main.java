@@ -13,25 +13,17 @@ import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-//import org.beryx.awt.color.*;
-
 public class Main {
 
     public static void main(String[] args) {
         List<List<String>> data = readCSV();
-        System.out.println("data =");
-        System.out.println(data);
-        System.out.println("filtered");
         List<Shape> result = filterAndCreateListShapes(data);
-        System.out.println("result =" + result);
-        System.out.println(result.get(0).getColor());
         drawShape(result);
     }
     public static List<List<String>> readCSV() {
         String fileName= "shapeData.csv";
         File file= new File(fileName);
 
-        // this gives you a 2-dimensional array of strings
         List<List<String>> lines = new ArrayList<>();
         Scanner inputStream;
 
@@ -40,25 +32,15 @@ public class Main {
 
             while(inputStream.hasNext()){
                 String line= inputStream.next();
-                String[] values = line.split(",");
-                // this adds the currently parsed line to the 2-dimensional string array
+                String[] values = line.split("[\\s\\-\\.\\'\\?\\,\\_\\@\\\"]+");
                 lines.add(Arrays.asList(values));
+                
             }
+            System.out.println(lines);
 
             inputStream.close();
         }catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-
-        // the following code lets you iterate through the 2-dimensional array
-        int lineNo = 1;
-        for(List<String> line: lines) {
-            int columnNo = 1;
-            for (String value: line) {
-                System.out.println("Line " + lineNo + " Column " + columnNo + ": " + value);
-                columnNo++;
-            }
-            lineNo++;
         }
         
         return lines;
@@ -69,15 +51,12 @@ public class Main {
 
         for (List<String> i: data){
             Shape shape;
-
             Double x = Double.parseDouble(i.get(1));
             Double y = Double.parseDouble(i.get(2));
             String shapeType = i.get(3);
             String param1 = i.get(4);
             String param2 = i.get(5);
             String color = i.get(i.size()-1);
-            //System.out.println(shapeType);
-            //System.out.println(i.get(i.size()-1));
             switch(shapeType) {
                 case "square":
                     if (param1 == "NULL"){
@@ -169,9 +148,7 @@ public class Main {
                 }
                 
                 }
-            
         };
-        
         f.add(pn);
     }
 }
