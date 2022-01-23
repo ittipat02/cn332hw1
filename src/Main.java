@@ -59,7 +59,7 @@ public class Main {
             String color = i.get(i.size()-1);
             switch(shapeType) {
                 case "square":
-                    if (param1 == "NULL"){
+                    if (param1 == "NULL" || param1 == ""){
                         shape = new Square();
                     }else{
                         shape = new Square(Double.parseDouble(param1), x, y, color);
@@ -67,7 +67,7 @@ public class Main {
                     result.add(shape);
                     break;
                 case "circle":
-                    if (param1 == "NULL"){
+                    if (param1 == "NULL" || param1 == ""){
                         shape = new Circle();
                     }else{
                         shape = new Circle(Double.parseDouble(param1), x, y, color);
@@ -75,7 +75,7 @@ public class Main {
                     result.add(shape);
                     break;
                 case "rectangle":
-                    if ((param1 == "NULL") || (param2 == "NULL")){
+                    if (param1 == "NULL" || param1 == ""){
                         shape = new Rectangle();
                     }else{
                         shape = new Rectangle(Double.parseDouble(param1),Double.parseDouble(param2), x, y, color);
@@ -88,7 +88,7 @@ public class Main {
                     String param4 = i.get(7);
                     String param5 = i.get(8);
                     String param6 = i.get(9);
-                    if (param1 == "NULL" || param2 == "NULL" || param3 == "NULL" || param4 == "NULL" || param5 == "NULL" || param6 == "NULL"){
+                    if (param1 == "NULL" || param1 == ""){
                         shape = new Triangle();
                     }else{
                         
